@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load bootstrap_icons %}
+{% block content%}
+<script>
+  var post_data= "{{ post_data }}";
+</script>
+<div>
+
+    <form>
+        <div style="display:none" id="postId">{{ post_data.id }}</div>
+        <div class="form-group">
+            <label for="titleInput">Post title</label>
+            <textarea class="form-control" id="titleInput" rows="3" >{{ post_data.title}}</textarea>
+          </div>
+        <div class="form-group">
+            <label for="author">Author</label>
+            <textarea class="form-control" id="author" rows="3">{{ post_data.author}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="content">Content</label>
+            <textarea class="form-control" id="content" rows="3">{{ post_data.content}}</textarea>
+          </div>
+        
+      </form>
+      <p>
+        <label>Upload Image</label>
+      <input onchange="changeBG('pictureUpload','displayPicture','output','image')"  type="file" id="pictureUpload"/>
+      {% if post_data.image %}
+      <div id="displayPicture" style="display:block"><img id="output" src="{{post_data.image}}" width="320" > </div>
+      {% else %}
+      <div id="displayPicture"><img id="output" width="320" > </div>
+      {% endif %}
+      <span class="removeImage" onclick="removeMedia('pictureUpload','displayPicture','output')" >remove image <span class="icon2">{% bs_icon 'trash-fill' %}</span></span>
+    </p>
+      <p>
+        <label>Upload Video</label>
+        <input onchange="changeBG('videoUpload','displayVideo','videoElement','video')"  type="file" id="videoUpload"/>
+        {% if post_data.video %}
+        <div id="displayVideo" style="display:block" ><video id="videoElement" width="320" height="240" controls ><source src="{{post_data.video}}" ></video> </div>
+        {% else %}
+        <div id="displayVideo" style="display:none"><video id="videoElement" width="320" height="240" controls></video ></div>
+        {% endif %}
+        <span class="removeImage" onclick="removeMedia('videoUpload','displayVideo','videoElement')" >remove video <span class="icon2">{% bs_icon 'trash-fill' %}</span></span>
+
+      </p>
+      <p class="submitButton" id="submitButton" onclick="onSubmit()"  >Submit</p>
+      <p  id="postSaved" onclick="closePostSaved()"  ></p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
+      <script src="{% static 'blogControls.js' %}" ></script>
+</div>
+
+{% endblock %}

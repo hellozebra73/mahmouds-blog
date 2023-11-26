@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap_icons %}
+{% block content%}
+<script>
+    var posts_data = "{{ posts_data }}";
+
+    // Now you can use myJavaScriptVariable in your JavaScript code
+</script>
+{% for post in posts_data %}
+
+<div id="postNum{{post.id}}" class="postCard">
+    <div class="row" >
+        <div class="col col-6 textCol   ">
+    <h2 class="postTitle">{{ post.title }}</h2>
+    <p class="author">By {{ post.author }}</p>
+    {% if post.updated_on %}
+    <p>Updated on {{   post.updated_on}}</p>
+    {% else %}
+    <p> Created on {{ post.created_on }}</p>
+    {% endif %}
+    <p>{{ post.content }}</p>
+    <!-- <p class="imageP"> <img id="image{{ forloop.counter }}" src="{{ post.image.url.url }}" alt="{{ post.title }}"> </p> -->
+</div>
+<div class="col col-6 mediaCol   ">
+    {% if post.image %}
+    <p>
+        <img src="{{post.image}}" alt="No image" width="320">
+
+
+    </p>
+    {% else %}
+    <p>
+        <span></span>
+    </p>
+    {% endif %}
+    {% if post.video %}
+    <p>
+        <video width="320" height="240" controls>
+            <source src="{{post.video}}">
+
+        </video>
+
+
+    </p>
+    {% else %}
+    <p>
+        <span></span>
+    </p>
+    {% endif %}
+</div>
+    <p>
+    <span class="icon" onclick="window.location = '/create/{{ post.id }}'">{% bs_icon 'pencil-fill' %}</span> 
+    <span class="icon" onclick="delete_post({{post.id}})">{% bs_icon 'trash-fill' %}</span>
+</p>
+</div>
+</div>
+
+{% endfor %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script src="{% static 'postsControls.js' %}"></script>
+
+{% endblock %}

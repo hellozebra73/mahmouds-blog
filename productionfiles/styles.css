@@ -1,0 +1,147 @@
+
+:root {
+  --dark_blue: rgba(1,27,52,1);
+
+  --grey_1:rgb(250, 250, 250);
+  --text_color_1:rgb(120, 120, 120);
+  --text_color_2:rgb(38, 73, 105);
+  --text_color_3:rgb(194, 197, 220);
+  --primary: rgb(232,114, 90);
+}
+
+  .title{
+    color:red;
+  }
+
+  .background{
+    background-color:var(--grey_1);
+  }
+
+  .mainRow{
+    background-color: var(--grey_1)  ;
+  
+  }
+  
+  .navigationCol{
+    background-color:var(--dark_blue) ;
+    min-height: 100vh;
+    height:auto;
+    
+    text-align: center;
+  .withPadding{
+    padding-top: 5vh;
+  
+    
+  }
+  }
+
+  .logoSolar{
+    max-width: 50%;
+  }
+
+
+  
+.menuOption {.menuIcon{
+  margin-left: 10px;
+  margin-right: 15px;
+  font-size: large;
+  color:var(--primary);
+}}
+
+.menuOption span{
+  color: rgb(223, 225, 240) ;
+  font-size: large;
+  
+}
+.menuOption{
+  margin-top: 35px;
+  text-align: left;
+  padding-left: 2vw;
+
+}
+.menuOption:hover{
+  cursor: pointer;
+  color: var(--text_color_3) !important;
+  background-color: rgb(22, 56, 88);
+
+}
+
+.postCard{
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  margin-top: 2vh;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  margin-bottom: 3vh;
+  padding-bottom: 5vh;
+  padding-left: 3vw;
+  padding-right: 3vw;
+
+  
+  
+}
+
+.icon{
+  color:var(--primary);
+  margin-top: 35px;
+  text-align: left;
+  padding-left: 2vw;
+
+}
+.icon:hover{
+  cursor: pointer;
+  color: var(--text_color_3) !important;
+  
+
+}
+
+.icon2{
+  color:var(--primary);
+  margin-top: 35px;
+  text-align: left;
+  
+
+}
+.icon2:hover{
+  cursor: pointer;
+  color: var(--text_color_3) !important;
+  
+
+}
+
+.postTitle{
+  color:var(--primary);
+}
+.author{
+  font-weight: normal;
+}
+
+
+.submitButton{
+  color:White;
+  border-radius: 18px;
+  margin-top: 35px;
+  text-align: left;
+  padding: 10px;
+  width:fit-content;
+  background-color: var(--dark_blue);
+
+}
+.submitButton:hover{
+  cursor: pointer;
+  color: var(--text_color_3) !important;
+}
+
+.mediaCol{
+  padding-top: 4vh;
+}
+
+.textCol{
+  padding-top: 4vh;
+}
+
+.removeImage:hover{
+  cursor: pointer;
+  color: var(--text_color_3) !important;
+  
+}

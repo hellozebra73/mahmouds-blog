@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+  <script>
+    var csrftoken = '{{ csrf_token }}';
+    var post_data = "{{ posts_data }}";
+
+
+  </script>
+
+
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  {% load bootstrap_icons %}
+</head>
+
+<body>
+  
+  <div class="container-fluid d-flex h-100 flex-column ">
+    <div class="row nav_row mainRow">
+      <div class="col col-2 navigationCol    ">
+        <div class="withPadding">
+          <img class="logoSolar" src="{% static 'logoSolar.jpg' %}">
+          <p class="menuOption" onclick="window.location = '/create'"> <span class="menuIcon">{% bs_icon 'house'%}</span> <span> New Post</span> </p>
+          <p class="menuOption" onclick="window.location = '/posts'"> <span class="menuIcon">{% bs_icon 'buildings' %}</span>
+            <span>Post Lists</span></p>
+
+        </div>
+
+      </div>
+      <div class="col col-10 ">
+        <h1 class="blogTitle">Welcome to Mahmouds Team!</h1>
+        {% block content %}
+        {% endblock %}
+        
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
